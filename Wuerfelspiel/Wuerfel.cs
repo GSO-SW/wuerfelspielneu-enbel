@@ -14,6 +14,7 @@ namespace Wuerfelspiel
         }
         public Wuerfel (int anzahlSeiten)
         {
+            this.anzahlSeiten = anzahlSeiten;
         }
 
         public int AnzahlSeiten
@@ -58,7 +59,7 @@ namespace Wuerfelspiel
 
         public int Wuerfeln()
         {
-            letzteErgebnis = rnd.Next(1, 6);
+            letzteErgebnis = rnd.Next(1, anzahlSeiten);
             return letzteErgebnis;
         }
     }
