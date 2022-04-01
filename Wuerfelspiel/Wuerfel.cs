@@ -11,6 +11,9 @@ namespace Wuerfelspiel
 
         public Wuerfel ()
         {
+            anzahlSeiten = 6;
+            letzteErgebnis = 0;
+            gesichert = false;
         }
         public Wuerfel (int anzahlSeiten)
         {
