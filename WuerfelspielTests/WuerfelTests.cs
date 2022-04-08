@@ -7,12 +7,32 @@ namespace WuerfelspielTests
     [TestClass]
     public class WuerfelTests
     {
-        [TestMethod]
-        public void DummyTest()
+        [TestClass]
+        public class WuerfelTests
         {
-            // Dieser Test ist hier, um eine GitHub-Funktion zu testen. 
-            // Einfach löschen :)
-            Assert.IsTrue(true);// is tatsächlich true :O
+            [TestMethod]
+            public void Wuerfel_wuerfeln()
+            {
+                //arrange 
+                Wuerfel w = new Wuerfel();
+                int anzahlseiten = 6;
+                //act
+                int ergebnis = w.Wuerfeln(anzahlseiten);
+                //assert 
+                Assert.AreEqual(1 - 6, ergebnis);
+            }
+            [TestMethod]
+            public void Wuerfel_LetztesErgebnisAbfagen()
+            {
+                //arrange 
+                Wuerfel w = new Wuerfel();
+                int anzahlseiten = 6;
+                //act
+                w.Wuerfeln(anzahlseiten);
+                int ergebnis = w.LetztesErgebnis;
+                //assert 
+                Assert.AreEqual(1 - 6, ergebnis);
+            }
         }
     }
 }
