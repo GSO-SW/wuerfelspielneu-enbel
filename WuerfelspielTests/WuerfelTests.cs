@@ -7,32 +7,56 @@ namespace WuerfelspielTests
     [TestClass]
     public class WuerfelTests
     {
-        [TestClass]
-        public class WuerfelTests
+        [TestMethod]
+        public void Wuerfel_KannErstelltWerden()
         {
-            [TestMethod]
-            public void Wuerfel_wuerfeln()
-            {
-                //arrange 
-                Wuerfel w = new Wuerfel();
-                int anzahlseiten = 6;
-                //act
-                int ergebnis = w.Wuerfeln(anzahlseiten);
-                //assert 
-                Assert.AreEqual(1 - 6, ergebnis);
-            }
-            [TestMethod]
-            public void Wuerfel_LetztesErgebnisAbfagen()
-            {
-                //arrange 
-                Wuerfel w = new Wuerfel();
-                int anzahlseiten = 6;
-                //act
-                w.Wuerfeln(anzahlseiten);
-                int ergebnis = w.LetztesErgebnis;
-                //assert 
-                Assert.AreEqual(1 - 6, ergebnis);
-            }
+            Wurfel w = new Wuerfel();
+        }
+
+        [TestMethod]
+        public void Wuerfel_SeitenZahlRichtig()
+        {
+            int seitenzahl = 12;
+            Wuerfel w = new Wuerfel(seitenzahl);
+            Assert.AreEqual(seitenzahl, w.Seitenzahl);
+            
+        }
+     
+
+        [TestMethod]
+        public void Wuerfel_wuerfeln()
+        {
+            //arrange 
+            int anzahlseiten = 6;
+            Wuerfel w = new Wuerfel();
+           
+            //act
+            int ergebnis = w.Wuerfeln;
+            //assert 
+            Assert.IsNotNull( w.LetztesErgebnis);
+        }
+        [TestMethod]
+        public void Wuerfel_GesichertFalse()
+        {
+            //arrange 
+            Wuerfel w = new Wuerfel();
+            bool gesichert = false;
+            //act
+            w.Sichern();
+            //assert 
+            Assert.AreEqual(gesichert, w.Gesichert);
+        }
+        [TestMethod]
+        public void Wuerfel_GesichertTrue()
+        {
+            //arrange 
+            Wuerfel w = new Wuerfel();
+            bool gesichert = true;
+            //act
+            w.Sichern();
+            //assert 
+            Assert.AreEqual(gesichert, w.Gesichert);
         }
     }
+    
 }
